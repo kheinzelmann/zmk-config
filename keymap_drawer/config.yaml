@@ -1,6 +1,6 @@
 draw_config:
   n_columns: 1
-  darkmode: on
+  dark_mode: on
   draw_key_sides: true
   key_w: 60.0
   key_h: 56.0
