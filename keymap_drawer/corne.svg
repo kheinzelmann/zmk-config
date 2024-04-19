@@ -255,11 +255,6 @@ svg.keymap {
   text-rendering: optimizeLegibility;
 }
 
-/* Color accent for held keys */
-rect.held, rect.combo.held {
-    fill: #ffc;
-}
-
 /* Technique borrowed and extended from https://github.com/englmaxi/zmk-config/blob/master/keymap-drawer/config.yaml */
 .sym_sub_text.tap {
   translate: -5px 2px;
