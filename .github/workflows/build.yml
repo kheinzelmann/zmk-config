@@ -2,7 +2,7 @@ name: Build firmware
 on:
   push:
     branches: [main] # run build on PR merge to main
-  pull_requests:     # run on any action on a PR
+  pull_request:     # run on any action on a PR
   workflow_dispatch: # manual rerun
 
 jobs:
