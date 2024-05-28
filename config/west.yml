@@ -12,7 +12,7 @@ manifest:
       remote: urob
       revision: main
       import: app/west.yml
-    - name: zmk
+    - name: zmk_serial
       remote: xudongzheng
       revision: split-serial-pr
       import: app/west.yml
