@@ -16,6 +16,7 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-tri-state
+      remote: urob
       revision: main
       path: modules/tri-state
   self:
