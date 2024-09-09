@@ -57,6 +57,15 @@
 <svg id="mdi:close-thick">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-close-thick" viewBox="0 0 24 24"><path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
 </svg>
+<svg id="mdi:content-copy">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-content-copy" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" /></svg>
+</svg>
+<svg id="mdi:content-cut">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-content-cut" viewBox="0 0 24 24"><path d="M19,3L13,9L15,11L22,4V3M12,12.5A0.5,0.5 0 0,1 11.5,12A0.5,0.5 0 0,1 12,11.5A0.5,0.5 0 0,1 12.5,12A0.5,0.5 0 0,1 12,12.5M6,20A2,2 0 0,1 4,18C4,16.89 4.9,16 6,16A2,2 0 0,1 8,18C8,19.11 7.1,20 6,20M6,8A2,2 0 0,1 4,6C4,4.89 4.9,4 6,4A2,2 0 0,1 8,6C8,7.11 7.1,8 6,8M9.64,7.64C9.87,7.14 10,6.59 10,6A4,4 0 0,0 6,2A4,4 0 0,0 2,6A4,4 0 0,0 6,10C6.59,10 7.14,9.87 7.64,9.64L10,12L7.64,14.36C7.14,14.13 6.59,14 6,14A4,4 0 0,0 2,18A4,4 0 0,0 6,22A4,4 0 0,0 10,18C10,17.41 9.87,16.86 9.64,16.36L12,14L19,21H22V20L9.64,7.64Z" /></svg>
+</svg>
+<svg id="mdi:content-paste">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-content-paste" viewBox="0 0 24 24"><path d="M19,20H5V4H7V7H17V4H19M12,2A1,1 0 0,1 13,3A1,1 0 0,1 12,4A1,1 0 0,1 11,3A1,1 0 0,1 12,2M19,2H14.82C14.4,0.84 13.3,0 12,0C10.7,0 9.6,0.84 9.18,2H5A2,2 0 0,0 3,4V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V4A2,2 0 0,0 19,2Z" /></svg>
+</svg>
 <svg id="mdi:cursor-default-click">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-cursor-default-click" viewBox="0 0 24 24"><path d="M10.76,8.69A0.76,0.76 0 0,0 10,9.45V20.9C10,21.32 10.34,21.66 10.76,21.66C10.95,21.66 11.11,21.6 11.24,21.5L13.15,19.95L14.81,23.57C14.94,23.84 15.21,24 15.5,24C15.61,24 15.72,24 15.83,23.92L18.59,22.64C18.97,22.46 19.15,22 18.95,21.63L17.28,18L19.69,17.55C19.85,17.5 20,17.43 20.12,17.29C20.39,16.97 20.35,16.5 20,16.21L11.26,8.86L11.25,8.87C11.12,8.76 10.95,8.69 10.76,8.69M15,10V8H20V10H15M13.83,4.76L16.66,1.93L18.07,3.34L15.24,6.17L13.83,4.76M10,0H12V5H10V0M3.93,14.66L6.76,11.83L8.17,13.24L5.34,16.07L3.93,14.66M3.93,3.34L5.34,1.93L8.17,4.76L6.76,6.17L3.93,3.34M7,10H2V8H7V10" /></svg>
 </svg>
@@ -216,6 +225,10 @@ text.shifted {
     dominant-baseline: hanging;
 }
 
+text.layer-activator {
+    text-decoration: underline;
+}
+
 /* styling for hold/shifted label text in combo box */
 text.combo.hold, text.combo.shifted {
     font-size: 8px;
@@ -330,7 +343,7 @@ svg.keymap {
 }
 </style>
 <g transform="translate(40, 0)" class="layer-base">
-<text x="0" y="28" class="label">base:</text>
+<text x="0" y="28" class="label" id="base">base:</text>
 <g transform="translate(0, 90)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -510,20 +523,23 @@ svg.keymap {
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-38" width="40" height="68" class="key"/>
 <use href="#mdi:keyboard-return" xlink:href="#mdi:keyboard-return" x="-9" y="-13" height="18" width="18.0" class="key tap glyph mdi:keyboard-return"/>
-<text x="0" y="38" class="key hold">fn</text>
-</g>
+<a href="#fn">
+<text x="0" y="38" class="key hold layer-activator">fn</text>
+</a></g>
 <g transform="translate(433, 224) rotate(-30.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-38" width="40" height="68" class="key"/>
 <text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;num_dance</tspan></text>
-<text x="0" y="38" class="key hold">num</text>
-</g>
+<a href="#num">
+<text x="0" y="38" class="key hold layer-activator">num</text>
+</a></g>
 <g transform="translate(498, 213) rotate(-15.0)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="-9" y="-13" height="18" width="18.0" class="key tap glyph mdi:keyboard-space"/>
-<text x="0" y="24" class="key hold">nav</text>
-<use href="#mdi:circle-small" xlink:href="#mdi:circle-small" x="-8" y="-24" height="15" width="15.0" class="key shifted glyph mdi:circle-small"/>
+<a href="#nav">
+<text x="0" y="24" class="key hold layer-activator">nav</text>
+</a><use href="#mdi:circle-small" xlink:href="#mdi:circle-small" x="-8" y="-24" height="15" width="15.0" class="key shifted glyph mdi:circle-small"/>
 </g>
 <g transform="translate(560, 205)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -550,28 +566,22 @@ svg.keymap {
 </g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="156" y="76" width="25" height="24" class="combo"/>
-<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repeat</tspan></text>
+<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repe…</tspan></text>
 <use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="160" y="82" height="15" width="15.0" class="combo hold glyph mdi:apple-keyboard-option"/>
 </g>
 <g class="combo combopos-5">
 <path d="M140,254 h-53 a6.0,6.0 0 0 1 -6.0,-6.0 v-83" class="combo"/>
 <path d="M140,254 h53 a6.0,6.0 0 0 0 6.0,-6.0 v-83" class="combo"/>
 <rect rx="6" ry="6" x="128" y="242" width="25" height="24" class="combo"/>
-<text x="140" y="254" class="combo tap">
-<tspan x="140" dy="-0.6em">Ctl+</tspan><tspan x="140" dy="1.2em">X</tspan>
-</text>
+<use href="#mdi:content-cut" xlink:href="#mdi:content-cut" x="131" y="245" height="18" width="18.0" class="combo tap glyph mdi:content-cut"/>
 </g>
 <g class="combo combopos-6">
 <rect rx="6" ry="6" x="100" y="132" width="25" height="24" class="combo"/>
-<text x="112" y="144" class="combo tap">
-<tspan x="112" dy="-0.6em">Ctl+</tspan><tspan x="112" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-copy" xlink:href="#mdi:content-copy" x="103" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-copy"/>
 </g>
 <g class="combo combopos-7">
 <rect rx="6" ry="6" x="156" y="132" width="25" height="24" class="combo"/>
-<text x="168" y="144" class="combo tap">
-<tspan x="168" dy="-0.6em">Sft+</tspan><tspan x="168" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-paste" xlink:href="#mdi:content-paste" x="159" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-paste"/>
 </g>
 <g class="combo combopos-8">
 <rect rx="6" ry="6" x="548" y="20" width="25" height="24" class="combo"/>
@@ -667,7 +677,7 @@ svg.keymap {
 </g>
 </g>
 <g transform="translate(40, 365)" class="layer-nav">
-<text x="0" y="28" class="label">nav:</text>
+<text x="0" y="28" class="label" id="nav">nav:</text>
 <g transform="translate(0, 90)">
 <g transform="translate(28, 49)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -885,28 +895,22 @@ svg.keymap {
 </g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="156" y="76" width="25" height="24" class="combo"/>
-<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repeat</tspan></text>
+<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repe…</tspan></text>
 <use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="160" y="82" height="15" width="15.0" class="combo hold glyph mdi:apple-keyboard-option"/>
 </g>
 <g class="combo combopos-5">
 <path d="M140,254 h-53 a6.0,6.0 0 0 1 -6.0,-6.0 v-83" class="combo"/>
 <path d="M140,254 h53 a6.0,6.0 0 0 0 6.0,-6.0 v-83" class="combo"/>
 <rect rx="6" ry="6" x="128" y="242" width="25" height="24" class="combo"/>
-<text x="140" y="254" class="combo tap">
-<tspan x="140" dy="-0.6em">Ctl+</tspan><tspan x="140" dy="1.2em">X</tspan>
-</text>
+<use href="#mdi:content-cut" xlink:href="#mdi:content-cut" x="131" y="245" height="18" width="18.0" class="combo tap glyph mdi:content-cut"/>
 </g>
 <g class="combo combopos-6">
 <rect rx="6" ry="6" x="100" y="132" width="25" height="24" class="combo"/>
-<text x="112" y="144" class="combo tap">
-<tspan x="112" dy="-0.6em">Ctl+</tspan><tspan x="112" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-copy" xlink:href="#mdi:content-copy" x="103" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-copy"/>
 </g>
 <g class="combo combopos-7">
 <rect rx="6" ry="6" x="156" y="132" width="25" height="24" class="combo"/>
-<text x="168" y="144" class="combo tap">
-<tspan x="168" dy="-0.6em">Sft+</tspan><tspan x="168" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-paste" xlink:href="#mdi:content-paste" x="159" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-paste"/>
 </g>
 <g class="combo combopos-8">
 <rect rx="6" ry="6" x="548" y="20" width="25" height="24" class="combo"/>
@@ -999,7 +1003,7 @@ svg.keymap {
 </g>
 </g>
 <g transform="translate(40, 729)" class="layer-fn">
-<text x="0" y="28" class="label">fn:</text>
+<text x="0" y="28" class="label" id="fn">fn:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1191,7 +1195,7 @@ svg.keymap {
 </g>
 </g>
 <g transform="translate(40, 1060)" class="layer-num">
-<text x="0" y="28" class="label">num:</text>
+<text x="0" y="28" class="label" id="num">num:</text>
 <g transform="translate(0, 90)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1397,28 +1401,22 @@ svg.keymap {
 </g>
 <g class="combo combopos-4">
 <rect rx="6" ry="6" x="156" y="76" width="25" height="24" class="combo"/>
-<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repeat</tspan></text>
+<text x="168" y="88" class="combo tap"><tspan style="font-size: 60%">&amp;key_repe…</tspan></text>
 <use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="160" y="82" height="15" width="15.0" class="combo hold glyph mdi:apple-keyboard-option"/>
 </g>
 <g class="combo combopos-5">
 <path d="M140,254 h-53 a6.0,6.0 0 0 1 -6.0,-6.0 v-83" class="combo"/>
 <path d="M140,254 h53 a6.0,6.0 0 0 0 6.0,-6.0 v-83" class="combo"/>
 <rect rx="6" ry="6" x="128" y="242" width="25" height="24" class="combo"/>
-<text x="140" y="254" class="combo tap">
-<tspan x="140" dy="-0.6em">Ctl+</tspan><tspan x="140" dy="1.2em">X</tspan>
-</text>
+<use href="#mdi:content-cut" xlink:href="#mdi:content-cut" x="131" y="245" height="18" width="18.0" class="combo tap glyph mdi:content-cut"/>
 </g>
 <g class="combo combopos-6">
 <rect rx="6" ry="6" x="100" y="132" width="25" height="24" class="combo"/>
-<text x="112" y="144" class="combo tap">
-<tspan x="112" dy="-0.6em">Ctl+</tspan><tspan x="112" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-copy" xlink:href="#mdi:content-copy" x="103" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-copy"/>
 </g>
 <g class="combo combopos-7">
 <rect rx="6" ry="6" x="156" y="132" width="25" height="24" class="combo"/>
-<text x="168" y="144" class="combo tap">
-<tspan x="168" dy="-0.6em">Sft+</tspan><tspan x="168" dy="1.2em">INS</tspan>
-</text>
+<use href="#mdi:content-paste" xlink:href="#mdi:content-paste" x="159" y="134" height="18" width="18.0" class="combo tap glyph mdi:content-paste"/>
 </g>
 <g class="combo combopos-8">
 <rect rx="6" ry="6" x="548" y="20" width="25" height="24" class="combo"/>
@@ -1514,7 +1512,7 @@ svg.keymap {
 </g>
 </g>
 <g transform="translate(40, 1425)" class="layer-sys">
-<text x="0" y="28" class="label">sys:</text>
+<text x="0" y="28" class="label" id="sys">sys:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key sym_sub_text keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key sym_sub_text side"/>
@@ -1707,7 +1705,7 @@ svg.keymap {
 </g>
 </g>
 <g transform="translate(40, 1755)" class="layer-mouse">
-<text x="0" y="28" class="label">mouse:</text>
+<text x="0" y="28" class="label" id="mouse">mouse:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
