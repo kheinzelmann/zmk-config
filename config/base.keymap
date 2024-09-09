@@ -7,7 +7,7 @@
     #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#include "../zmk-helpers/helper.h"
+#include "zmk-helpers/helper.h"
 
 #define DEF 0
 #define NAV 1
