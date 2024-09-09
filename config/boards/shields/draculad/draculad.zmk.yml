@@ -1,0 +1,13 @@
+file_format: "1"
+id: draculad
+name: draculad
+type: shield
+url: https://github.com/MangoIV/dracuLad
+requires: [nano_nice_v2]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - draculad_left
+  - draculad_right
