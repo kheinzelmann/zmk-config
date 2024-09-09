@@ -12,4 +12,4 @@
 #include "base.keymap"
 
 /* use 5-column layout for this corne */
-/ { chosen { zmk,matrix_transform = &five_column_transform; }; };
+// / { chosen { zmk,matrix_transform = &five_column_transform; }; };
