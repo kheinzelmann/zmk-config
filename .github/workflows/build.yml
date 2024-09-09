@@ -4,7 +4,7 @@ on:
     branches: [main] # run build on PR merge to main
   pull_request:     # run on any action on a PR
   workflow_dispatch: # manual rerun
-
+name: Build ZMK Firmware
 jobs:
   build:
-    uses: urob/zmk/.github/workflows/build-user-config.yml@build-with-submodules
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
