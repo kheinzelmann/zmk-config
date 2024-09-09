@@ -4,6 +4,7 @@
 /* map Zen's extra keys */
 #define X_LH  &bs_del          // thumb row, left
 #define X_RH  &smart_mouse     // thumb row, right
+#define X_MB  &none &none      // left, right encoder
 
 /* activate bluetooth */
 #define CONFIG_WIRELESS 1

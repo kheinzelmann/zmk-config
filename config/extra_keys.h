@@ -28,6 +28,9 @@
 #if !defined X_MH  // thumb row, middle
     #define X_MH
 #endif
+if !defined L_ENC // left encoder
+    #define L_ENC
+#endif
 
 /* right of right half */
 #if !defined X_RT  // top row, right
@@ -41,5 +44,8 @@
 #endif
 #if !defined X_RH  // thumb row, right
     #define X_RH
+#endif
+if !defined R_ENC // right encoder
+    #define R_ENC
 #endif
 
