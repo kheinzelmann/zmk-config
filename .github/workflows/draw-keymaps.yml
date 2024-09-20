@@ -1,7 +1,6 @@
 name: Draw Keymap SVGs
 on:
   pull_request:
-    types: [ opened, synchronize, reopened ]
     paths:
       - "config/**.keymap"
       - "config/**.dtsi"
