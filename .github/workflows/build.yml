@@ -3,6 +3,7 @@ on:
   push:
     branches: [main] # run build on PR merge to main
   pull_request:     # run on any action on a PR
+    types: [ opened, synchronize, reopened ]
     paths:
       - "config/*"
       - ".github/workflows/build.yaml"
