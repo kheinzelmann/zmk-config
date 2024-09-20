@@ -3,6 +3,9 @@ on:
   push:
     branches: [main] # run build on PR merge to main
   pull_request:     # run on any action on a PR
+    paths:
+      - "config/**"
+      - ".github/workflows/build.yaml"
   workflow_dispatch: # manual rerun
 jobs:
   build:
