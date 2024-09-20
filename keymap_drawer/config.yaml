@@ -2,6 +2,7 @@ draw_config:
   n_columns: 1
   dark_mode: on
   draw_key_sides: true
+  separate_combo_diagrams: true
   key_w: 60.0
   key_h: 56.0
   split_gap: 30.0
@@ -105,6 +106,10 @@ draw_config:
     material: https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{}/default/48px.svg
   use_local_cache: true
 parse_config:
+  zmk_preamble: "#include <zmk-helpers/key-labels/34.h>"
+  zmk_additional_includes:
+    - "modules/helpers/include"
+
   preprocess: true
   skip_binding_parsing: false
   sticky_label: sticky
