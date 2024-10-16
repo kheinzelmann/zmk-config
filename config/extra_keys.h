@@ -44,6 +44,6 @@
 #endif
 
 /* encoders */
-if !defined SENSORS
+#if !defined SENSORS
     #define SENSORS
 #endif
