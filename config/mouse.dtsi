@@ -2,7 +2,6 @@
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/mouse.h>
-#include <behaviors/mouse_keys.dtsi>
 
 &mmv {
   acceleration-exponent = <1>;      // 1
@@ -24,4 +23,3 @@
 #define U_WH_D &msc SCRL_DOWN
 #define U_WH_L &msc SCRL_LEFT
 #define U_WH_R &msc SCRL_RIGHT
-

@@ -42,4 +42,3 @@
 #if !defined X_RH  // thumb row, right
     #define X_RH
 #endif
-
