@@ -2,8 +2,10 @@
 #include "draculad.h"
 
 /* map Zen's extra keys */
-#define X_LH  &none &bs_del          // thumb row, left
-#define X_RH  &smart_mouse &none     // thumb row, right
+#define X_LH  &bs_del          // thumb row, left
+#define X_RH  &smart_mouse     // thumb row, right
+#define X_MB  CANCEL &kp K_PP    // encoder left, right
+#define SENSORS &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN
 
 /* activate bluetooth */
 #define CONFIG_WIRELESS 1
