@@ -1,7 +1,7 @@
 # Copyright (c) 2022 ZMK Contributors
 # SPDX-License-Identifier: MIT
- 
- 
+
+
 if SHIELD_CHARYBDIS_LEFT
 
 config ZMK_KEYBOARD_NAME
@@ -24,10 +24,10 @@ if SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
 config ZMK_SPLIT
 	default y
 
-config ZMK_SPLIT_SERIAL
-	default y
+# config ZMK_SPLIT_SERIAL
+#	default y
 
-config ZMK_SPLIT_SERIAL_UART_POLLING
+# config ZMK_SPLIT_SERIAL_UART_POLLING
 	default y
 
 endif

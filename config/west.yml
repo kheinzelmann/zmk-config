@@ -8,17 +8,12 @@ manifest:
     - name: urob
       url-base: https://github.com/urob
     # Serial PR
-    - name: xudongzheng
-      url-base: https://github.com/xudongzheng/
+    # - name: xudongzheng
+    #   url-base: https://github.com/xudongzheng/
 
   projects:
     - name: zmk-helpers
       revision: main
-      import: app/west.yml
-    - name: zmk_serial
-      remote: xudongzheng
-      revision: split-serial-pr
-      import: app/west.yml
       path: modules/helpers
     - name: zmk-auto-layer
       revision: main
@@ -26,7 +21,19 @@ manifest:
     - name: zmk-tri-state
       revision: main
       path: modules/tri-state
-
+    # - name: zmk_serial
+    #   remote: xudongzheng
+    #   revision: split-serial-pr
+    #   import: app/west.yml
+    - name: zmk-pmw3610-driver
+      remote: badjeff
+      revision: main
+    # - name: zmk-input-behavior-listener
+    #   remote: badjeff
+    #   revision: main
+    # - name: zmk-split-peripheral-input-relay
+    #   remote: badjeff
+    #   revision: main
     # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
     # Zephyr with a path other than `zephyr` (as in `going-modular`).
     - name: zmk
