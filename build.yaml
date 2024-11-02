@@ -21,3 +21,10 @@ include:
     shield: draculad_left
   - board: nice_nano_v2
     shield: draculad_right
+<<<<<<< Updated upstream
+=======
+  - board: nice_nano_v2
+    shield: dasbob_left
+  - board: nice_nano_v2
+    shield: dasbob_right
+>>>>>>> Stashed changes
