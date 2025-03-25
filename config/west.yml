@@ -1,32 +1,43 @@
 manifest:
   defaults:
     remote: urob
+    revision: v0.2
 
   remotes:
-    - name: upstream
+    - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
 
   projects:
-    - name: zmk-helpers
-      revision: main
-      path: modules/helpers
-    - name: zmk-auto-layer
-      revision: main
-      path: modules/auto-layer
-    - name: zmk-tri-state
-      revision: main
-      path: modules/tri-state
-
-    # ZMK with Zephyr namespaced under /zmk. This requires that ZMK imports
-    # Zephyr with a path other than `zephyr` (as in `going-modular`).
     - name: zmk
-      revision: going-modular
-      path: .
+      remote: zmkfirmware
+      import: app/west.yml
+    # modules
+    - name: zmk-adaptive-key
+      path: modules/zmk/adaptive-key
+    - name: zmk-auto-layer
+      path: modules/zmk/auto-layer
+    - name: zmk-helpers
+      path: modules/zmk/helpers
+    - name: zmk-tri-state
+      path: modules/zmk/tri-state
+
+    # Temporarily overload Zephyr until
+    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
+    - name: zephyr
+      revision: v3.5.0+zmk-fixes
+      clone-depth: 1
       import:
-        file: app/west.yml
-        path-prefix: zmk
+        # Only enable most commonly used boards. For less common hardware one
+        # may need to enable additional modules.
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - hal_rpi_pico
+          - hal_stm32
+          - lvgl
+          - tinycrypt
 
   self:
     path: config
