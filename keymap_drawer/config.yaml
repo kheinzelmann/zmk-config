@@ -497,6 +497,9 @@ parse_config:
     '&num_dance':
       tap: $$mdi::counter$$
       type: tap_dance
+    '&magic_shift': 
+      tap: Magic 
+      hold: "Shift"
     '&swapper':
       tap: $$mdi:curtains$$
       shifted: $$mdi:arrow-right-box$$
