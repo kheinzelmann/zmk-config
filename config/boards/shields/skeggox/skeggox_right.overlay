@@ -1,0 +1,35 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "skeggox.dtsi"
+
+&default_transform {
+	col-offset = <5>;
+};
+
+&kscan0 {
+    row-gpios
+        = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d  8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&xiao_d  7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        ;
+    col-gpios
+        = <&xiao_d  0 GPIO_ACTIVE_HIGH>
+        , <&xiao_d  1 GPIO_ACTIVE_HIGH>
+        , <&xiao_d  2 GPIO_ACTIVE_HIGH>
+        , <&xiao_d  3 GPIO_ACTIVE_HIGH>
+        , <&xiao_d  4 GPIO_ACTIVE_HIGH>
+        ;
+};
+
+#define MOUSE_PS2_PIN_SCL <&gpio0 5 GPIO_ACTIVE_HIGH>
+#define MOUSE_PS2_PIN_SDA <&gpio0 4 GPIO_ACTIVE_HIGH>
+// reset pin (this is either 9 or 10)
+#define MOUSE_PS2_PIN_RST <&gpio0 9 GPIO_ACTIVE_HIGH> 
+#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 4)>
+#include "tp_ps2.dtsi"
+
