@@ -1,12 +1,12 @@
 /* source keypos definitions */
+#define CONFIG_WIRELESS
+#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                   \
+    ZMK_LAYER(                                                                 \
+        name,                                                                  \
+                  LT RT                                                        \
+                  LM RM                                                        \
+                  LB RB                                                        \
+        &bs_del   LH RH &smart_mouse                                           \
+    )
 #include "zmk-helpers/key-labels/36.h"
-
-/* map Zen's extra keys */
-#define X_LH  &bs_del          // thumb row, left
-#define X_RH  &smart_mouse     // thumb row, right
-
-/* activate bluetooth */
-#define CONFIG_WIRELESS 1
-
-/* source the main keymap */
 #include "base.keymap"
