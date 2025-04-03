@@ -16,6 +16,11 @@ manifest:
       remote: zmkfirmware
       import: app/west.yml
     # modules
+    - name: ps2_trackpoint_driver
+      repo-path: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: badjeff
+      revision: main
+      path: modules/zmk/ps2_trackpoint_driver
     - name: zmk-adaptive-key
       path: modules/zmk/adaptive-key
     - name: zmk-auto-layer
@@ -26,8 +31,6 @@ manifest:
       path: modules/zmk/leader-key
     - name: zmk-tri-state
       path: modules/zmk/tri-state
-    - name: kb_zmk_ps2_mouse_trackpoint_driver
-      path: modules/zmk/ps2_trackpoint_driver
 
     # Temporarily overload Zephyr until
     # https://github.com/zmkfirmware/zephyr/pull/40 is merged.

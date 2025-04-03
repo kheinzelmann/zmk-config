@@ -26,10 +26,12 @@
         ;
 };
 
-#define MOUSE_PS2_PIN_SCL <&gpio0 5 GPIO_ACTIVE_HIGH>
-#define MOUSE_PS2_PIN_SDA <&gpio0 4 GPIO_ACTIVE_HIGH>
 // reset pin (this is either 9 or 10)
 #define MOUSE_PS2_PIN_RST <&gpio0 9 GPIO_ACTIVE_HIGH> 
-#define MOUSE_PS2_PIN_SDA_PINCTRL <NRF_PSEL(UART_RX, 0, 4)>
 #include "tp_ps2.dtsi"
+
+// DEFINE_TP(tpoint1);
+
+&tpoint0_split { status = "disabled"; };
+&tpoint1_split { device=<&tpoint0>; status = "okay"; };
 
