@@ -35,24 +35,24 @@
     };
 
 
+    // peripheral, right hand
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
 
-        tpoint0_split: tpoint0@0 { compatible = "zmk,input-split"; reg = <0>; };
-        tpoint1_split: tpoint1@1 { compatible = "zmk,input-split"; reg = <1>; };
+        tpoint_peripheral: tpoint_peripheral@0 { compatible = "zmk,input-split"; reg = <0>; };
     };
 
-    split_listener0 {
-	status = "okay";
+    tpoint_peripheral_listener: tpoint_peripheral_listener {
         compatible = "zmk,input-listener";
-        device = <&tpoint0_split>;
+        device = <&tpoint_peripheral>;
+	status = "disabled";
     };
 
-    split_listener1 {
-	status = "okay";
+    // central, left hand
+    tpoint_central_listener: tpoint_central_listener {
         compatible = "zmk,input-listener";
-        device = <&tpoint1_split>;
+	status = "disabled";
     };
 };
 
