@@ -10,60 +10,11 @@
 
 #define MOUSE_PS2_UART_BAUD_RATE <14400>
 
-// Unexposed UART pins
-// In UART two different pins are used for receiving and transmitting, but PS/2
-// uses the same pin for both.
-//
-// The UART config still requires both pins to be configured. So we use one of
-// the nrf52 pins that are not exposed on the nice!nano board.
-//
-#define MOUSE_PS2_PIN_UNEXPOSED_TX <NRF_PSEL(UART_TX, 0, 27)>
-#define MOUSE_PS2_PIN_UNEXPOSED_RX <NRF_PSEL(UART_RX, 0, 28)>
+// #define MOUSE_PS2_PIN_UNEXPOSED_TX <NRF_PSEL(UART_TX, 0, 27)>
+// #define MOUSE_PS2_PIN_UNEXPOSED_RX <NRF_PSEL(UART_RX, 0, 28)>
 // Possibly these for xiao
-//#define MOUSE_PS2_PIN_UNEXPOSED_TX <NRF_PSEL(UART_TX, 1, 1)>
-//#define MOUSE_PS2_PIN_UNEXPOSED_RX <NRF_PSEL(UART_RX, 1, 2)>
-
-// Adjust GPIO interrupt priority to the highest level.
-//
-// IMPORTANT TLDR:
-// If you are using the nice_nano_v2 board, you don't need to make changes to
-// the config below and can leave it as it is.
-//
-// Explanation of these settings:
-//
-// PS/2 events must be processed within 30-50us, but frequently bluetooth and
-// other interrupts take longer to finish.
-//
-// Therefore we change the default GPIO priority to the highest level (0) and
-// demote all BT interrupt priorities by one level using the kconfig settings:
-// - CONFIG_BT_CTLR_LLL_PRIO 1
-// - CONFIG_BT_CTLR_ULL_HIGH_PRIO 2
-// - CONFIG_BT_CTLR_ULL_LOW_PRIOCONFIG 2
-//
-// These config options are enabled automatically by the PS2 UART and GPIO
-// drivers... so you don't have to enable them manually.
-//
-// Then we lower the interrupt priority of all other devices by 2 levels using
-// the devicetree config below.
-//
-// This allows the PS/2 interrupts to be triggered faster and reduces
-// transmission errors.
-//
-// If you are using the nice_nano_v2 board, you can reuse my config below.
-//
-// Otherwise, you can generate the interrupt overrides using this script:
-// https://github.com/infused-kim/kb_zmk_ps2_mouse_trackpoint_driver/blob/main/scripts/gen_interrupt_priority_overrides.py
-//
-// Make sure to do it on a zephyr.dts where the interrupts have not been
-// adjusted yet (i.e. a config that doesn't have the the following options
-// enabled).
-//
-// If you are building using a toolchain you can find the zephyr.dts in the
-// build directory, which by default is: `app/build/zephyr/zephyr.dts`
-//
-// If you are building using the github actions, copy the output of the build
-// step `xxxx_right - nice_nano_v2 Devicetree file` into a file and run the
-// script on it.
+#define MOUSE_PS2_PIN_UNEXPOSED_TX <NRF_PSEL(UART_TX, 1, 1)>
+#define MOUSE_PS2_PIN_UNEXPOSED_RX <NRF_PSEL(UART_RX, 1, 2)>
 
 // gpiote should have the highest interrupt priority (0)
 &gpiote { interrupts = < 6 0 >; };

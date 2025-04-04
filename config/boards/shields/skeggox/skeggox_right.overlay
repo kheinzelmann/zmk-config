@@ -28,6 +28,7 @@
 
 // reset pin (this is either 9 or 10)
 #define MOUSE_PS2_PIN_RST <&gpio0 9 GPIO_ACTIVE_HIGH> 
+
 // define trackpoint
 #include "tp_ps2.dtsi"
 
