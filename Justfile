@@ -5,6 +5,7 @@ config := absolute_path('config')
 build := absolute_path('.build')
 out := absolute_path('firmware')
 draw := absolute_path('keymap_drawer')
+icons := absolute_path('icons')
 
 # parse combos.dtsi and adjust settings to not run out of slots
 _parse_combos:
@@ -85,9 +86,30 @@ clean-nix:
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/base.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
-    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/base.svg"
+    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/dasbob.keymap" > "{{ draw }}/full.yaml"
+    readarray -t layers < <(yq '.layers | keys[]' "{{ draw }}/full.yaml" | tr -d \")
+    for layer in ${layers[@]}
+    do
+        # find all combos attached to that layer and pull them out and strip other layers
+        echo "Rendering $layer"
+        yq "del(.combos[] | select(.l  | index(\"$layer\") == null)) | .combos.[].l = [\"$layer\"] |.layers |= with_entries(select(.key==\"$layer\"))" "{{ draw }}/full.yaml" > "{{ draw }}/$layer.yaml"
+        keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/$layer.yaml" -j "{{ draw }}/dasbob.json" >"{{ draw }}/$layer.svg"
+    done
+
+# update icon files
+readme-icons:
+    #!/usr/bin/env bash
+    # copy the cache of glyphs local
+    cp ~/Library/Caches/keymap-drawer/glyphs/*.svg "{{ icons }}"
+
+    # remove unused glyphs
+    readarray -t unused < <(comm -1 -3 <(grep -oP "mdi:.*?\.svg" "{{ icons }}/../readme.md" | sort | uniq) <(ls -1 "{{ icons }}"))
+    for f in ${unused[@]}
+    do
+        rm "{{ icons }}/$f"
+    done
+    # add color to the paths
+    sed  -i 's/path/path stroke="rgb(120, 144, 156)" fill="rgb(120, 144, 156)"/g' {{ icons }}/mdi:*.svg
 
 # initialize west
 init:
