@@ -30,12 +30,6 @@ manifest:
       path: modules/zmk-pwm3619-driver
     - name: zmk-tri-state
       path: modules/zmk/tri-state
-    # - name: zmk-input-behavior-listener
-    #   remote: badjeff
-    #   revision: main
-    # - name: zmk-split-peripheral-input-relay
-    #   remote: badjeff
-    #   revision: main
 
     # Temporarily overload Zephyr until
     # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
