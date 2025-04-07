@@ -1,2 +1,9 @@
+.build
+.direnv
+.west
+modules
+firmware
+zephyr
+zmk
 keymap_drawer/*.yaml
-!keymap_drawer/config.yaml
+**/.DS_Store
