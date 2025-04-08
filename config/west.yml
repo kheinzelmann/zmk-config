@@ -27,7 +27,7 @@ manifest:
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: main
-      path: modules/zmk-pwm3619-driver
+      path: modules/zmk/pwm3619-driver
     - name: zmk-tri-state
       path: modules/zmk/tri-state
 

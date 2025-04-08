@@ -10,17 +10,16 @@
         &bs_del   LH RH                                                        \
     )
 
-#if 1
 / {
     /* input config for mouse move mode */
     trackball_move_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball_split>;
-        layers = <0 1 2 3 4 5>;
+        layers = <0 1 3 4 5>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <4>;
+        scale-multiplier = <3>;
         scale-divisor = <5>;
         bindings = <&ib_toggle_layer 5>;
     };
@@ -29,7 +28,7 @@
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball_split>;
-        layers = <6>;
+        layers = <2>; // nav
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -65,7 +64,7 @@
         time-to-live-ms = <750>;
     };
 };
-#endif
+
 #include "zmk-helpers/key-labels/36.h"
 #include "base.keymap"
 
