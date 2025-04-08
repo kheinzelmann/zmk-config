@@ -94,8 +94,8 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
 
 #ifdef MACOS
-#define NAV_UP    &mt LG(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LG(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_UP    &mt LG(UP) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LG(DOWN)  DOWN    // tap: down  | long-tap: end       of document
 #define MEH(s) &kp
 // TODO #define MEH(s) &hm##s  LS(LC(LALT))      // shift control option
 // TODO ZMK_MACRO(hyper, bindings=<&sk LG MEH(l)>)

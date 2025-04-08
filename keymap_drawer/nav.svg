@@ -487,7 +487,7 @@ path.combo {
 <g transform="translate(843, 40)" class="key keypos-7">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
 <use href="#mdi:arrow-up-bold" xlink:href="#mdi:arrow-up-bold" x="-11" y="-11" height="22" width="22.0" class="key tap glyph mdi:arrow-up-bold"/>
-<use href="#mdi:chevron-double-left" xlink:href="#mdi:chevron-double-left" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:chevron-double-left"/>
+<use href="#mdi:arrow-up-bold" xlink:href="#mdi:arrow-up-bold" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:arrow-up-bold"/>
 </g>
 <g transform="translate(940, 67) rotate(5.0)" class="key keypos-8">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
@@ -534,7 +534,7 @@ path.combo {
 <g transform="translate(843, 120)" class="key keypos-17">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
 <use href="#mdi:arrow-down-bold" xlink:href="#mdi:arrow-down-bold" x="-11" y="-11" height="22" width="22.0" class="key tap glyph mdi:arrow-down-bold"/>
-<use href="#mdi:chevron-double-right" xlink:href="#mdi:chevron-double-right" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:chevron-double-right"/>
+<use href="#mdi:arrow-down-bold" xlink:href="#mdi:arrow-down-bold" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:arrow-down-bold"/>
 </g>
 <g transform="translate(933, 147) rotate(5.0)" class="key keypos-18">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
