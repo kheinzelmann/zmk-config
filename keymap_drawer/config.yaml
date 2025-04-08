@@ -248,8 +248,8 @@ parse_config:
     # navigation
     HOME: $$mdi:chevron-double-left$$
     END: $$mdi:chevron-double-right$$
-    LGUI(UP): $$mdi:chevron-double-up$$
-    LGUI(DOWN): $$mdi:chevron-double-down$$
+    LG(UP): $$mdi:chevron-double-up$$
+    LG(DOWN): $$mdi:chevron-double-down$$
     LC(HOME): $$mdi:chevron-double-up$$
     LC(END): $$mdi:chevron-double-down$$
 

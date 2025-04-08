@@ -36,11 +36,17 @@
 <svg id="mdi:backspace-reverse-outline">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-backspace-reverse-outline" viewBox="0 0 24 24"><path d="M5,15.59L6.41,17L10,13.41L13.59,17L15,15.59L11.41,12L15,8.41L13.59,7L10,10.59L6.41,7L5,8.41L8.59,12L5,15.59M2,3A2,2 0 0,0 0,5V19A2,2 0 0,0 2,21H17C17.69,21 18.23,20.64 18.59,20.11L24,12L18.59,3.88C18.23,3.35 17.69,3 17,3H2M2,5H17L21.72,12L17,19H2V5Z" /></svg>
 </svg>
+<svg id="mdi:chevron-double-down">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-chevron-double-down" viewBox="0 0 24 24"><path d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" /></svg>
+</svg>
 <svg id="mdi:chevron-double-left">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-chevron-double-left" viewBox="0 0 24 24"><path d="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z" /></svg>
 </svg>
 <svg id="mdi:chevron-double-right">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-chevron-double-right" viewBox="0 0 24 24"><path d="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z" /></svg>
+</svg>
+<svg id="mdi:chevron-double-up">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-chevron-double-up" viewBox="0 0 24 24"><path d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" /></svg>
 </svg>
 <svg id="mdi:close-box">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-close-box" viewBox="0 0 24 24"><path d="M19,3H16.3H7.7H5A2,2 0 0,0 3,5V7.7V16.4V19A2,2 0 0,0 5,21H7.7H16.4H19A2,2 0 0,0 21,19V16.3V7.7V5A2,2 0 0,0 19,3M15.6,17L12,13.4L8.4,17L7,15.6L10.6,12L7,8.4L8.4,7L12,10.6L15.6,7L17,8.4L13.4,12L17,15.6L15.6,17Z" /></svg>
@@ -487,7 +493,7 @@ path.combo {
 <g transform="translate(843, 40)" class="key keypos-7">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
 <use href="#mdi:arrow-up-bold" xlink:href="#mdi:arrow-up-bold" x="-11" y="-11" height="22" width="22.0" class="key tap glyph mdi:arrow-up-bold"/>
-<use href="#mdi:arrow-up-bold" xlink:href="#mdi:arrow-up-bold" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:arrow-up-bold"/>
+<use href="#mdi:chevron-double-up" xlink:href="#mdi:chevron-double-up" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:chevron-double-up"/>
 </g>
 <g transform="translate(940, 67) rotate(5.0)" class="key keypos-8">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
@@ -534,7 +540,7 @@ path.combo {
 <g transform="translate(843, 120)" class="key keypos-17">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
 <use href="#mdi:arrow-down-bold" xlink:href="#mdi:arrow-down-bold" x="-11" y="-11" height="22" width="22.0" class="key tap glyph mdi:arrow-down-bold"/>
-<use href="#mdi:arrow-down-bold" xlink:href="#mdi:arrow-down-bold" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:arrow-down-bold"/>
+<use href="#mdi:chevron-double-down" xlink:href="#mdi:chevron-double-down" x="-8" y="18" height="16" width="16.0" class="key hold glyph mdi:chevron-double-down"/>
 </g>
 <g transform="translate(933, 147) rotate(5.0)" class="key keypos-18">
 <rect rx="4" ry="4" x="-38" y="-38" width="77" height="77" class="key"/>
