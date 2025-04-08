@@ -248,8 +248,8 @@ parse_config:
     # navigation
     HOME: $$mdi:chevron-double-left$$
     END: $$mdi:chevron-double-right$$
-    LGUI(HOME): $$mdi:chevron-double-up$$
-    LGUI(END): $$mdi:chevron-double-down$$
+    LG(UP): $$mdi:chevron-double-up$$
+    LG(DOWN): $$mdi:chevron-double-down$$
     LC(HOME): $$mdi:chevron-double-up$$
     LC(END): $$mdi:chevron-double-down$$
 
@@ -264,6 +264,7 @@ parse_config:
     LC(INS): $$mdi:content-copy$$
     LS(INS): $$mdi:content-paste$$
     LC(X): $$mdi:content-cut$$
+    LG(X): $$mdi:content-cut$$
 
     # Whitespace
     ENTER:

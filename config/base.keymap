@@ -94,8 +94,8 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
 
 #ifdef MACOS
-#define NAV_UP    &mt LG(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LG(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_UP    &mt LG(UP) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LG(DOWN)  DOWN    // tap: down  | long-tap: end       of document
 #define MEH(s) &kp
 // TODO #define MEH(s) &hm##s  LS(LC(LALT))      // shift control option
 // TODO ZMK_MACRO(hyper, bindings=<&sk LG MEH(l)>)
@@ -156,7 +156,7 @@ ZMK_TAP_DANCE(num_dance,
 ZMK_TRI_STATE(smart_mouse,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
     ignored-key-positions =
-        <LT2 LM3 LM2 LM1 LB2 LH0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH1>;
+        <LT1 LT2 LM3 LM2 LM1 LB2 LH0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH1>;
     ignored-layers = <MOUSE NAV FN>;
 )
 
