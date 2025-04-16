@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2020 ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "charybdis.dtsi"
+
+&trackball_listener {
+    status = "okay";
+};

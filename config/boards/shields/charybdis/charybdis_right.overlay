@@ -1,0 +1,25 @@
+/*
+ * Copyright (c) 2020 ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+//#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include "charybdis.dtsi"
+#include "charybdis_pmw3610.dtsi"
+
+&default_transform {
+    col-offset = <5>;
+};
+
+&spi0 {
+    status = "okay";
+};
+
+&trackball {
+    status = "okay";
+};
+
+&trackball_split {
+    device = <&trackball>;
+};

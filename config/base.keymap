@@ -74,6 +74,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #include "leader.dtsi"
 #include "mouse.dtsi"
 
+/*******************************************************/
+
 /* Nav cluster */
 
 // long-tap action on hold, short-tap action on all interrupts
@@ -90,8 +92,18 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 
 #define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+
+#ifdef MACOS
+#define NAV_UP    &mt LG(UP) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LG(DOWN)  DOWN    // tap: down  | long-tap: end       of document
+#define MEH(s) &kp
+// TODO #define MEH(s) &hm##s  LS(LC(LALT))      // shift control option
+// TODO ZMK_MACRO(hyper, bindings=<&sk LG MEH(l)>)
+#else
 #define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
 #define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define MEH(s) &kp
+#endif
 #define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
@@ -144,19 +156,25 @@ ZMK_TAP_DANCE(num_dance,
 ZMK_TRI_STATE(smart_mouse,
     bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
     ignored-key-positions =
-        <LT2 LM3 LM2 LM1 LB2 LH0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH1>;
+        <LT1 LT2 LM3 LM2 LM1 LB2 LH0 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH1>;
     ignored-layers = <MOUSE NAV FN>;
 )
 
 
 /* Custom behaviors */
 
-// Alt+Tab swapper, requires tri-state module TODO update for mac
+// Alt+Tab swapper, requires tri-state module
+#ifdef MACOS
+ZMK_TRI_STATE(swapper,
+    bindings = <&kt LGUI>, <&kp TAB>, <&kp LGUI>;
+    ignored-key-positions = <LT2 RT2 RM1 RM2 RM3>;
+)
+#else
 ZMK_TRI_STATE(swapper,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     ignored-key-positions = <LT2 RT2 RM1 RM2 RM3>;
 )
-
+#endif
 // Define mod-morph with a *single* mod trigger for less repetition.
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_MOD_MORPH(NAME, \
@@ -206,16 +224,21 @@ ZMK_TAP_DANCE(copy_cut,
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
-// Sticky shift + leader.
-ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
-
-// misc aliases TODO: fix for mac
+// misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
-#define DSK_PREV    &hmr LCTRL LG(LC(LEFT))   // previous desktop
-#define DSK_NEXT    &hmr LALT LG(LC(RIGHT)) // next     desktop
+#ifdef MACOS
+#define DSK_PREV    &hmr RCTRL LC(LEFT)
+#define DSK_NEXT    &hmr RALT LC(RIGHT)
+#define PIN_WIN ___
+#define PIN_APP ___
+#define DSK_MGR     &kp LC(DOWN)
+#else
+#define DSK_PREV    &hmr RCTRL LG(LC(LEFT))  // previous desktop
+#define DSK_NEXT    &hmr RALT LG(LC(RIGHT))  // next     desktop
 #define PIN_WIN     &kp LG(LC(LS(Q)))        // pin window across desktops
 #define PIN_APP     &kp LG(LC(LS(A)))        // pin application across desktops
 #define DSK_MGR     &kp LA(GRAVE)            // desktop manager
+#endif
 #define VOL_DOWN    &hmr RSHFT C_VOL_DN
 
 /* Keymap */
@@ -231,7 +254,7 @@ ZMK_BASE_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp Q         &kp W         &kp F         &kp P         &kp B        ,  &kp J         &kp L         &kp U         &kp Y         &kp SQT     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G        ,  &kp M         &hmr RCTRL N  &hmr RSHFT E  &hmr RALT I   &hmr RGUI O ,
+    &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  MEH(l) G     ,  MEH(r) M      &hmr RCTRL N  &hmr RSHFT E  &hmr RALT I   &hmr RGUI O ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Z         &kp X         &kp C         &kp D         &kp V        ,  &kp K         &kp H         &comma_morph  &dot_morph    &qexcl      ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -269,7 +292,7 @@ ZMK_BASE_LAYER(num,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &hml LGUI N0  &hml LALT N4  &hml LSHFT N5 &hml LCTRL N6 &kp PLUS     ,  ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp FSLH      &kp N1        &kp N2        &kp N3        &kp RET      ,  ___           ___           ___           ___           ___         ,
+    &kp FSLH      &kp N1        &kp N2        &kp N3        &kp RET      ,  ___           ___           ___           &dot_morph    ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___          ,  ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯

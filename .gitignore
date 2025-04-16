@@ -5,4 +5,5 @@ modules
 firmware
 zephyr
 zmk
-draw/base.yaml
+keymap_drawer/*.yaml
+**/.DS_Store
