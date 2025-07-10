@@ -9,5 +9,51 @@
                   LB RB                                                        \
         &bs_del   LH RH &smart_mouse                                           \
     )
+
 #include "zmk-helpers/key-labels/36.h"
 #include "base.keymap"
+#include <dt-bindings/zmk/input_transform.h>
+
+/*
+input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_scaler 0 1>;
+scroller {
+    layers = <10>;
+    //process-next;
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_xy_scaler 1 8>,<&zip_xy_to_scroll_mapper>;
+};
+mouse {
+    layers = <9>;
+    input-processors =
+    <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>
+    //, <&zip_temp_layer 9 500>
+    ;
+};
+*/
+
+&tpoint_peripheral_listener {
+    // <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
+    move {
+        layers = <DEF NAV NUM SYS MOUSE>;
+        input-processors = <&zip_xy_scaler 3 1>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_temp_layer MOUSE 750>;
+    };
+
+    /* slow mouse in fn layer */
+    snipe {
+        layers = <FN>;
+        input-processors = <&zip_xy_scaler 1 8>;
+    };
+};
+
+&tpoint_central_listener {
+    // <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>,
+    move {
+        layers = <DEF NAV NUM SYS MOUSE>;
+        input-processors = <&zip_xy_scaler 3 1>,<&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,<&zip_temp_layer MOUSE 750>;
+    };
+
+    /* slow mouse in fn layer */
+    snipe {
+        layers = <FN>;
+        input-processors = <&zip_xy_scaler 1 8>;
+    };
+};
