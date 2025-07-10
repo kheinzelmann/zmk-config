@@ -10,12 +10,19 @@ manifest:
       url-base: https://github.com/urob
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: kh
+      url-base: https://github.com/kheinzelmann
 
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
     # modules
+    - name: ps2_trackpoint_driver
+      repo-path: kb_zmk_ps2_mouse_trackpoint_driver
+      remote: badjeff
+      revision: main
+      path: modules/zmk/ps2_trackpoint_driver
     - name: zmk-adaptive-key
       path: modules/zmk/adaptive-key
     - name: zmk-auto-layer
@@ -28,6 +35,11 @@ manifest:
       remote: badjeff
       revision: main
       path: modules/zmk/pwm3619-driver
+    - name: zmk-rgbled-widget
+      path: modules/zmk/rgb_widget
+      repo-path: zmk-rgbled-widget
+      remote: kh
+      revision: main
     - name: zmk-tri-state
       path: modules/zmk/tri-state
 

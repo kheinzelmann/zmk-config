@@ -86,14 +86,14 @@ clean-nix:
 draw:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/dasbob.keymap" > "{{ draw }}/full.yaml"
+    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/skeggox.keymap" > "{{ draw }}/full.yaml"
     readarray -t layers < <(yq '.layers | keys[]' "{{ draw }}/full.yaml" | tr -d \")
     for layer in ${layers[@]}
     do
         # find all combos attached to that layer and pull them out and strip other layers
         echo "Rendering $layer"
         yq "del(.combos[] | select(.l  | index(\"$layer\") == null)) | .combos.[].l = [\"$layer\"] |.layers |= with_entries(select(.key==\"$layer\"))" "{{ draw }}/full.yaml" > "{{ draw }}/$layer.yaml"
-        keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/$layer.yaml" -j "{{ draw }}/dasbob.json" >"{{ draw }}/$layer.svg"
+        keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/$layer.yaml" -j "{{ draw }}/skeggox.json" >"{{ draw }}/$layer.svg"
     done
 
 # update icon files

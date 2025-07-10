@@ -1,0 +1,13 @@
+file_format: "1"
+id: skeggox
+name: Skeggox
+type: shield
+url: https://github.com/kheinzelmann/skeggox
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - pointer
+  - studio
+siblings:
+  - skeggox_left
+  - skeggox_right
