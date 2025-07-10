@@ -535,7 +535,7 @@ draw_config:
         text-anchor: center;
         paint-order: stroke;
         fill: var(--color--layer--text);
-        translate: 540px 155px;
+        translate: 600px 155px;
     }
 
     /* Keys */
