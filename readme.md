@@ -71,6 +71,7 @@ Holding the [Nav](#nav) layer key will increase mouse movement speed. Holding th
 | <img src="icons/mdi:mouse-scroll-wheel.svg" width="20" height="20"> | mouse middle click | | | |
 | <img src="icons/mdi:mouse-move-down.svg" width="20" height="20"> | mouse scroll down | <img src="icons/mdi:mouse-move-up.svg" width="20" height="20"> | mouse scroll up
 | <img src="icons/mdi:pan-left.svg" width="20" height="20"> | mouse scroll left | <img src="icons/mdi:pan-right.svg" width="20" height="20"> | mouse scroll right
+| <img src="icons/mdi:transfer-down.svg" width="20" height="20"> | Page Down | <img src="icons/mdi:transfer-up.svg" width="20" height="20"> | Page Up |
 </details>
 
 ### Fn
