@@ -262,7 +262,9 @@ parse_config:
 
     # Clipboard
     LC(INS): $$mdi:content-copy$$
+    LG(C): $$mdi:content-copy$$
     LS(INS): $$mdi:content-paste$$
+    LG(V): $$mdi:content-paste$$
     LC(X): $$mdi:content-cut$$
     LG(X): $$mdi:content-cut$$
 
