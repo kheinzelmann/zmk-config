@@ -18,7 +18,7 @@ _parse_targets $expr:
 _build_single $board $shield $snippet *west_args:
     #!/usr/bin/env bash
     set -euo pipefail
-    artifact="${shield:+${shield// /+}-}${board}"
+    artifact="${shield:+${shield// /+}-}${board//\//_}"
     build_dir="{{ build / '$artifact' }}"
 
     echo "Building firmware for $artifact..."

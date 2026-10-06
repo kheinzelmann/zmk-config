@@ -61,3 +61,8 @@
     };
 };
 
+// NFC pins as GPIO
+&uicr {
+    nfct-pins-as-gpios;
+};
+
