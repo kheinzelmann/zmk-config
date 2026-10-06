@@ -3,7 +3,7 @@ id: skeggox
 name: Skeggox
 type: shield
 url: https://github.com/kheinzelmann/skeggox
-requires: [seeeduino_xiao_ble]
+requires: [xiao_ble]
 features:
   - keys
   - pointer
